@@ -13,6 +13,10 @@ const scoreSlice = createSlice({
             state.gamesChoices.push(payload.choice)
             state.points--
         },
+        tie(state, { payload }) {
+            state.gamesResults.push(payload.result)
+            state.gamesChoices.push(payload.choice)
+        },
         win(state, { payload }) {
             state.gamesResults.push(payload.result)
             state.gamesChoices.push(payload.choice)

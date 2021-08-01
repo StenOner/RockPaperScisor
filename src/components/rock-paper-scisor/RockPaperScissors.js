@@ -44,7 +44,8 @@ const RockPaperScissors = () => {
                 break
         }
         if (result.includes('WIN')) dispatch(scoreActions.win({ result, choice: { 'playerChoice': item1, 'homeChoice': item2 } }))
-        else dispatch(scoreActions.lose({ result, choice: { 'playerChoice': item1, 'homeChoice': item2 } }))
+        else if (result.includes('LOSE')) dispatch(scoreActions.lose({ result, choice: { 'playerChoice': item1, 'homeChoice': item2 } }))
+        else dispatch(scoreActions.tie({ result, choice: { 'playerChoice': item1, 'homeChoice': item2 } }))
         history.push('/resultado')
     }
     const randomPick = () => {
